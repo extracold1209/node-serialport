@@ -121,7 +121,9 @@ void EIO_Open(uv_work_t* req) {
   }
 
   if (data->rtscts) {
-    dcb.fRtsControl = RTS_CONTROL_ENABLE;
+    //dcb.fRtsControl = RTS_CONTROL_ENABLE;
+    dcb.fRtsControl = RTS_CONTROL_HANDSHAKE; // modify
+    dcb.fOutxCtsFlow = TRUE; // modify
   } else {
     dcb.fRtsControl = RTS_CONTROL_DISABLE;
   }
